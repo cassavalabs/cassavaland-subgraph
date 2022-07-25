@@ -13,7 +13,7 @@ import {
   loadERC1155Contract,
   ZERO_ADDRESS_STRING,
   replaceURI,
-} from "../utils";
+} from "./utils";
 
 function registerTransfer(
   contract: ERC1155NftContract,

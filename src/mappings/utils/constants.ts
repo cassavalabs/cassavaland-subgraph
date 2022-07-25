@@ -1,6 +1,6 @@
 import { BigInt } from "@graphprotocol/graph-ts";
 
-export const ZERO_BYTES_32_STRING =
+export let ZERO_BYTES_32_STRING =
   "0x0000000000000000000000000000000000000000000000000000000000000000";
 
 /* eslint-disable prefer-const */

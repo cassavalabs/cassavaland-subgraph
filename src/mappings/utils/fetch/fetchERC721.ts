@@ -4,15 +4,15 @@ import {
   Account,
   ERC721NftContract,
   ERC721Nft,
-} from "../../../generated/schema";
-import { ERC721 } from "../../../generated/ERC721/ERC721";
+} from "../../../../generated/schema";
+import { ERC721 } from "../../../../generated/ERC721/ERC721";
 import {
   loadAccount,
   loadAllNft,
   supportsInterface,
   ONE_BIG_INT,
   ZERO_BIG_INT,
-} from "../";
+} from "..";
 
 export function loadERC721Contract(address: Address): ERC721NftContract | null {
   let erc721 = ERC721.bind(address);
@@ -44,14 +44,15 @@ export function loadERC721Contract(address: Address): ERC721NftContract | null {
       let try_symbol = erc721.try_symbol();
       contract.name = try_name.reverted ? "" : try_name.value;
       contract.symbol = try_symbol.reverted ? "" : try_symbol.value;
-      contract.supportsMetadata = supportsInterface(erc721, "5b5e139f"); // ERC721Metadata
+      contract.supportsMetadata = supportsInterface(erc721, "5b5e139f");
       contract.supportsERC2981 = supportsInterface(erc721, "0x2a55205a");
       contract.asAccount = account.id;
       contract.totalNfts = ZERO_BIG_INT;
       contract.totalOwners = ZERO_BIG_INT;
       account.asERC721 = account.id;
-      allNft.totalERC721NftContracts =
-        allNft.totalERC721NftContracts.plus(ONE_BIG_INT);
+      allNft.totalERC721NftContracts = allNft.totalERC721NftContracts.plus(
+        ONE_BIG_INT
+      );
       allNft.save();
       contract.save();
       account.save();
@@ -74,8 +75,9 @@ export function loadERC721Nft(
     nft = new ERC721Nft(id);
     nft.nftContract = contract.id;
     nft.tokenId = tokenId;
-    allNft.totalERC721TokensCreated =
-      allNft.totalERC721TokensCreated.plus(ONE_BIG_INT);
+    allNft.totalERC721TokensCreated = allNft.totalERC721TokensCreated.plus(
+      ONE_BIG_INT
+    );
     allNft.save();
 
     if (contract.supportsMetadata) {

@@ -5,8 +5,8 @@ import {
   ERC1155NftContract,
   ERC1155Nft,
   ERC1155Balance,
-} from "../../../generated/schema";
-import { ERC1155 } from "../../../generated/ERC1155/ERC1155";
+} from "../../../../generated/schema";
+import { ERC1155 } from "../../../../generated/ERC1155/ERC1155";
 import {
   loadAccount,
   loadAllNft,
@@ -15,7 +15,7 @@ import {
   ONE_BIG_INT,
   ZERO_BIG_INT,
   ZERO_BIG_DECIMAL,
-} from "../";
+} from "..";
 
 export function loadERC1155Contract(address: Address): ERC1155NftContract {
   let erc1155 = ERC1155.bind(address);
@@ -30,8 +30,9 @@ export function loadERC1155Contract(address: Address): ERC1155NftContract {
     contract.totalNfts = ZERO_BIG_INT;
     contract.totalOwners = ZERO_BIG_INT;
     account.asERC1155 = contract.id;
-    allNft.totalERC1155NftContracts =
-      allNft.totalERC1155NftContracts.plus(ONE_BIG_INT);
+    allNft.totalERC1155NftContracts = allNft.totalERC1155NftContracts.plus(
+      ONE_BIG_INT
+    );
     allNft.save();
     contract.save();
   }
@@ -81,8 +82,9 @@ export function loadERC1155Nft(
     nft.metadataURL = try_uri.reverted
       ? null
       : replaceURI(try_uri.value, tokenId);
-    allNft.totalERC1155TokensCreated =
-      allNft.totalERC1155TokensCreated.plus(ONE_BIG_INT);
+    allNft.totalERC1155TokensCreated = allNft.totalERC1155TokensCreated.plus(
+      ONE_BIG_INT
+    );
     allNft.save();
     nft.save();
   }

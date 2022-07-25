@@ -1,10 +1,9 @@
-/*eslint-disable prefer-const*/
 import { ethereum, Bytes } from "@graphprotocol/graph-ts";
 
 export function supportsInterface(
   contract: ethereum.SmartContract,
   interfaceId: string,
-  expected = true
+  expected: boolean = true
 ): boolean {
   let result = ethereum.call(
     new ethereum.SmartContractCall(

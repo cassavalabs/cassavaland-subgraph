@@ -7,7 +7,7 @@ import {
   loadERC721Nft,
   ZERO_ADDRESS_STRING,
   ONE_BIG_INT,
-} from "../utils";
+} from "./utils";
 
 export function handleTransfer(event: Transfer): void {
   let contract = loadERC721Contract(event.address);

@@ -1,4 +1,4 @@
-import { AllNft } from "../../../generated/schema";
+import { AllNft } from "../../../../generated/schema";
 import { ZERO_BIG_INT } from "../constants";
 
 export function loadAllNft(): AllNft {

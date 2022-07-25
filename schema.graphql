@@ -50,10 +50,10 @@ type ERC721Nft @entity {
   owner: Account!
 
   "Timestamp this Nft was minted on the blockchain"
-  dateMinted: BigInt!
+  dateMinted: BigInt
 
   "The link where metadata of this Nft is stored"
-  metadataURL: String!
+  metadataURL: String
 }
 
 type ERC1155Nft @entity {
@@ -75,7 +75,7 @@ type ERC1155Nft @entity {
   metadataURL: String
 
   "Date minted"
-  dateMinted: BigInt!
+  dateMinted: BigInt
 }
 
 type ERC721NftContract @entity {

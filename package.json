@@ -9,8 +9,8 @@
     "codegen": "graph codegen",
     "deploy": "graph deploy --product hosted-service iphyman/cassavaland-moonriver",
     "create": "graph create cassavaland-subgraph --node https://api.thegraph.com/deploy/",
-    "create-local": "graph create cassavaland-subgraph --node http://127.0.0.1:8020",
-    "deploy-local": "graph deploy cassavaland-subgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+    "create-local": "graph create bttc --node http://127.0.0.1:8020",
+    "deploy-local": "graph deploy bttc --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.30.0",
